@@ -1,0 +1,115 @@
+Airline Operations Intelligence - EDA Summary
+============================================================
+DESCRIPTIVE: January 2025 operational patterns are reported for this dataset only.
+STATISTICAL: Tests below assess association, not causation.
+BUSINESS INTERPRETATION: Results may inform operations planning and monitoring.
+
+Overall KPIs
+- total_scheduled_flights: 539747.0
+- operated_flights: 523435.0
+- cancellation_rate_percent: 3.02
+- diversion_rate_percent: 0.22
+- arrival_delay_15_rate_percent: 18.79
+- departure_delay_15_rate_percent: 18.2
+- mean_arrival_delay: 3.76
+- median_arrival_delay: -8.0
+- p75_arrival_delay: 7.0
+- p90_arrival_delay: 37.0
+- p95_arrival_delay: 74.0
+- p99_arrival_delay: 205.0
+- mean_departure_delay: 10.24
+- median_departure_delay: -3.0
+- Mean and median differ because arrival-delay values are right-skewed and a small number of large delays pull the mean upward more than the median.
+
+Top airline findings
+- Highest-volume airlines: WN, DL, AA, OO, UA
+- Lowest arrival-delay-rate airlines: WN, YX, AS, UA, NK
+- Highest arrival-delay-rate airlines: F9, OH, B6, OO, DL
+- Lowest cancellation-rate airlines: AS, B6, UA, OO, F9
+
+Top airport findings
+- Highest-volume origins: DFW, DEN, ATL, ORD, CLT
+- Highest-volume destinations: DFW, DEN, ATL, ORD, CLT
+
+Top route findings
+- Highest-volume routes: 
+- Most reliable high-volume routes: 
+- Highest-delay-risk high-volume routes: 
+
+Time pattern findings
+- Delay rates by day of week:  DAY_OF_WEEK  flight_count  arrival_delay_15_rate
+           1         70684                  22.64
+           2         61458                  15.31
+           3         79713                  13.28
+           4         88859                  17.37
+           5         88355                  19.46
+           6         62165                  21.64
+           7         71035                  22.59
+- Delay rates by scheduled departure hour:  SCHEDULED_DEP_HOUR  flight_count  arrival_delay_15_rate
+                  0           564                  10.99
+                  1           282                  16.31
+                  2            93                  18.28
+                  3            55                  12.73
+                  4            25                  24.00
+                  5         13411                  12.47
+                  6         35230                  12.56
+                  7         36580                  14.67
+                  8         37650                  15.53
+                  9         31326                  15.65
+- Delay rates by time block: DEP_TIME_BLOCK_CUSTOM  flight_count  arrival_delay_15_rate
+            Afternoon        157388                  20.41
+        Early Morning          1019                  13.54
+              Evening        114758                  22.68
+           Late Night         27967                  21.30
+              Morning        221137                  15.32
+
+Distance findings
+ DISTANCE_GROUP  flight_count  arrival_delay_15_rate  average_arrival_delay
+              1         58884                  18.06                   5.19
+              2        115496                  17.91                   4.11
+              3        100092                  19.42                   4.99
+              4         87398                  19.49                   3.97
+              5         66475                  20.72                   4.18
+              6         25293                  18.32                   2.08
+              7         24533                  19.94                   3.66
+              8         11677                  17.31                  -0.41
+              9          8993                  16.38                  -0.53
+             10         12085                  14.75                  -4.33
+             11         11343                  15.60                  -2.11
+
+Delay-cause findings
+              cause  total_minutes  percentage_of_attributed_minutes  average_minutes_when_present  non_missing_count
+      CARRIER_DELAY        2510886                             100.0                         25.59              98130
+      WEATHER_DELAY         629972                             100.0                          6.42              98130
+          NAS_DELAY        1381827                             100.0                         14.08              98130
+     SECURITY_DELAY          10550                             100.0                          0.11              98130
+LATE_AIRCRAFT_DELAY        2410759                             100.0                         24.57              98130
+
+Statistical analysis
+Airline vs late arrival
+- Chi-square statistic: 2982.9583
+- p-value: 0.000000e+00
+- Cramer's V: 0.0756
+- Interpretation: p-value is tiny because the sample is large; practical importance should be judged by effect size and business relevance.
+
+Time block vs late arrival
+- Chi-square statistic: 3283.1595
+- p-value: 0.000000e+00
+- Cramer's V: 0.0793
+
+95% confidence intervals for ARR_DEL15 proportion by major airline
+- AA: rate 0.1923 95% CI [0.1894, 0.1952]
+- AS: rate 0.1758 95% CI [0.1702, 0.1814]
+- B6: rate 0.2446 95% CI [0.2382, 0.2509]
+- DL: rate 0.1932 95% CI [0.1904, 0.1960]
+- F9: rate 0.2598 95% CI [0.2528, 0.2668]
+- MQ: rate 0.1843 95% CI [0.1790, 0.1896]
+- NK: rate 0.1808 95% CI [0.1750, 0.1866]
+- OH: rate 0.2548 95% CI [0.2486, 0.2610]
+- OO: rate 0.2088 95% CI [0.2057, 0.2120]
+- UA: rate 0.1763 95% CI [0.1732, 0.1793]
+- WN: rate 0.1521 95% CI [0.1499, 0.1543]
+- YX: rate 0.1602 95% CI [0.1558, 0.1646]
+
+Important limitation
+The current dataset contains January 2025 only, so results should not be generalized to annual or seasonal airline performance.

@@ -1,0 +1,15 @@
+metric,value
+total_scheduled_flights,539747.0
+operated_flights,523435.0
+cancellation_rate_percent,3.02
+diversion_rate_percent,0.22
+arrival_delay_15_rate_percent,18.79
+departure_delay_15_rate_percent,18.2
+mean_arrival_delay,3.76
+median_arrival_delay,-8.0
+p75_arrival_delay,7.0
+p90_arrival_delay,37.0
+p95_arrival_delay,74.0
+p99_arrival_delay,205.0
+mean_departure_delay,10.24
+median_departure_delay,-3.0

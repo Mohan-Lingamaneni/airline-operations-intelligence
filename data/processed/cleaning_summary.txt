@@ -1,0 +1,87 @@
+Airline Operations Intelligence - Cleaning Summary
+============================================================
+Original row count: 539747
+Operations dataset rows: 539747
+Delay-analysis dataset rows: 522269
+
+Rows excluded from delay-analysis dataset
+- CANCELLED = 1
+- DIVERTED = 1
+- ARR_DEL15 missing
+
+Columns removed
+- OP_CARRIER_AIRLINE_ID: Redundant carrier identifier or uninformative column in operational analysis
+- FLIGHTS: Redundant carrier identifier or uninformative column in operational analysis
+- OP_CARRIER: Redundant carrier identifier or uninformative column in operational analysis
+
+Engineered fields
+- FLIGHT_DATE: parsed from FL_DATE
+- ROUTE: ORIGIN-DEST
+- SCHEDULED_DEP_HOUR: derived from CRS_DEP_TIME
+- SCHEDULED_ARR_HOUR: derived from CRS_ARR_TIME
+- DEP_TIME_BLOCK_CUSTOM: categorized from scheduled departure hour
+
+Missing-value decisions
+- Raw missing values were not filled or imputed.
+- Delay-cause columns were preserved as-is; no zero-fill applied.
+- ARR_DEL15 was used as target only for operated flights with a non-missing outcome.
+
+Leakage policy
+- Post-departure and outcome variables were excluded from the delay-analysis feature set.
+- ARR_DEL15 was retained as the target only.
+
+Feature policy
+Pre-departure candidate features:
+- MONTH
+- DAY_OF_MONTH
+- DAY_OF_WEEK
+- OP_UNIQUE_CARRIER
+- ORIGIN
+- DEST
+- CRS_DEP_TIME
+- SCHEDULED_DEP_HOUR
+- DEP_TIME_BLOCK_CUSTOM
+- CRS_ARR_TIME
+- SCHEDULED_ARR_HOUR
+- ARR_TIME_BLK
+- CRS_ELAPSED_TIME
+- DISTANCE
+- DISTANCE_GROUP
+Leakage/post-outcome variables:
+- DEP_TIME
+- DEP_DELAY
+- DEP_DELAY_NEW
+- DEP_DEL15
+- DEP_DELAY_GROUP
+- TAXI_OUT
+- WHEELS_OFF
+- WHEELS_ON
+- TAXI_IN
+- ARR_TIME
+- ARR_DELAY
+- ARR_DELAY_NEW
+- ARR_DEL15
+- ARR_DELAY_GROUP
+- ACTUAL_ELAPSED_TIME
+- AIR_TIME
+- CANCELLED
+- CANCELLATION_CODE
+- DIVERTED
+- CARRIER_DELAY
+- WEATHER_DELAY
+- NAS_DELAY
+- SECURITY_DELAY
+- LATE_AIRCRAFT_DELAY
+Identifier/reference fields:
+- OP_CARRIER_FL_NUM
+- TAIL_NUM
+- ORIGIN_AIRPORT_ID
+- DEST_AIRPORT_ID
+- ORIGIN_CITY_NAME
+- DEST_CITY_NAME
+- ORIGIN_STATE_ABR
+- DEST_STATE_ABR
+
+Unresolved data-quality issues
+- A small number of records still have ambiguous or missing scheduled-time and route context values.
+- Delay-cause fields remain structurally sparse and should be reviewed manually before any inferential use.

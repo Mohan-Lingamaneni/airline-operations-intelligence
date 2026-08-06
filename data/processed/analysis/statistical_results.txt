@@ -1,0 +1,24 @@
+Airline vs late arrival
+- Chi-square statistic: 2982.9583
+- p-value: 0.000000e+00
+- Cramer's V: 0.0756
+- Interpretation: p-value is tiny because the sample is large; practical importance should be judged by effect size and business relevance.
+
+Time block vs late arrival
+- Chi-square statistic: 3283.1595
+- p-value: 0.000000e+00
+- Cramer's V: 0.0793
+
+95% confidence intervals for ARR_DEL15 proportion by major airline
+- AA: rate 0.1923 95% CI [0.1894, 0.1952]
+- AS: rate 0.1758 95% CI [0.1702, 0.1814]
+- B6: rate 0.2446 95% CI [0.2382, 0.2509]
+- DL: rate 0.1932 95% CI [0.1904, 0.1960]
+- F9: rate 0.2598 95% CI [0.2528, 0.2668]
+- MQ: rate 0.1843 95% CI [0.1790, 0.1896]
+- NK: rate 0.1808 95% CI [0.1750, 0.1866]
+- OH: rate 0.2548 95% CI [0.2486, 0.2610]
+- OO: rate 0.2088 95% CI [0.2057, 0.2120]
+- UA: rate 0.1763 95% CI [0.1732, 0.1793]
+- WN: rate 0.1521 95% CI [0.1499, 0.1543]
+- YX: rate 0.1602 95% CI [0.1558, 0.1646]
